@@ -3,7 +3,8 @@ import { useState } from "react";
 
 const Authenticate = ({ token, setToken }) => {
   const [error, setError] = useState(null);
-  const [auth, setAuth] = useState({});
+  const [authMessage, setAuthMessage] = useState({});
+  const [tokenUsername, setTokenUsername] = useState('');
   const [successMessage, setSuccessMessage] = useState(null);
 
   const handleClick = async (e) => {
@@ -17,20 +18,28 @@ const Authenticate = ({ token, setToken }) => {
        },
       });
       const data = await response.json();
-      setAuth(data);
+      setAuthMessage(data);
       setSuccessMessage(data.message);
-      // console.log(data.data.username)
+      setTokenUsername(data.data.username);
+      console.log(tokenUsername);
+      console.log(data)
+      
     } catch (error) {
       setError(error.message);
     }
   }
+  
+
 
   return (
     <>
+      <section className="authbox" >
       <h2>Authenticate! </h2>
-      {error && <p>{error}</p>}
-      {successMessage && <p>{successMessage}</p>}
+      {error && <p className="update-text">Try again! {error}</p>}
+      {successMessage && <p className="update-text">{successMessage}</p>}
+      {/* <p>{authMessage.date.name}</p> */}
       <button onClick={handleClick} >Authenticate Token</button>
+      </section>
     </>
   )
 }

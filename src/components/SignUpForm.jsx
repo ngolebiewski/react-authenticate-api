@@ -27,20 +27,23 @@ const signUpForm = ({token, setToken}) => {
 
   return (
     <>
+      <section className="authbox">
       <h2>Sign Up</h2>
 
-      {error && <p>{error}</p>}
+      {error && <p className="update-text">{error}</p>}
+      {token && <p className="update-text">Sign up a success, {username}, now click Authenticate. </p>}
 
       <form onSubmit={handleSubmit}>
-        <label>Username: <input value={username} name="username" type="text"
+        <label>Username: <input required value={username} name="username" type="text"
           onChange={e => setUsername(e.target.value)
           }
         /></label><br></br>
-        <label>Password: <input value={password} name="password" type="text"
+        <label>Password: <input required minLength="6" value={password} name="password" type="text"
           onChange={e => setPassword(e.target.value)}
         /></label><br></br>
         <button value="submit">Submit</button>
       </form>
+      </section>
     </>
   )
 }

@@ -3,8 +3,43 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+}
+main {
+  border-radius: 10px;
+  background-color: darkslategray;
 }
 
+.update-text {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+input {
+  margin: 10px;
+  border: 2px solid currentcolor;
+  border-radius: 2px;
+  padding: 3px;
+  width: 150px;
+}
+
+input:invalid {
+  font-style: italic;
+}
+
+input:invalid:focus {
+  background-color: pink;
+}
+
+
+.authbox {
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid hotpink;
+  background-color: rgb(154, 167, 181);
+  margin: 30px;
+  padding: 10px;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
